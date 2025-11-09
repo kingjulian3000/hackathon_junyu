@@ -84,10 +84,10 @@ export default function HomePage() {
         // Remove the flag so it doesn't show again
         localStorage.removeItem('showWelcomeAnimation');
         
-        // Auto-hide after 1.5 seconds (shorter duration)
+        // Auto-hide after 2.5 seconds with smooth fade out
         const timer = setTimeout(() => {
           setShowWelcome(false);
-        }, 1500);
+        }, 2500);
         
         return () => clearTimeout(timer);
       }
@@ -139,13 +139,13 @@ export default function HomePage() {
       <div className="min-h-screen bg-brand-50 text-brand-900">
 
 
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           {showWelcome && isClient && (
             <motion.div
               initial={{ opacity: 0, y: -50 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -50 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
               className="fixed top-20 left-1/2 transform -translate-x-1/2 z-50"
             >
               <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg shadow-lg">
@@ -217,13 +217,13 @@ export default function HomePage() {
       <div className="min-h-screen bg-brand-50 text-brand-900">
 
 
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           {showWelcome && isClient && (
             <motion.div
               initial={{ opacity: 0, y: -50 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -50 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
               className="fixed top-20 left-1/2 transform -translate-x-1/2 z-50"
             >
               <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg shadow-lg">
@@ -284,13 +284,13 @@ export default function HomePage() {
     <div className="min-h-screen bg-brand-50 text-brand-900">
       
 
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {showWelcome && isClient && (
           <motion.div
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
             className="fixed top-20 left-1/2 transform -translate-x-1/2 z-50"
           >
             <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg shadow-lg">
